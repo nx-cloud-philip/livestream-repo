@@ -30,9 +30,9 @@ jobs:
 
       - run: npm ci --legacy-peer-deps
       - run: npx playwright install
-        
+
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run lint, test and sonar scan
         run: |
-          npx nx affected -t lint test e2e-ci -c ci --parallel=5
+          npx nx affected -t lint test e2e
