@@ -35,4 +35,4 @@ jobs:
 
       - name: Run lint, test and sonar scan
         run: |
-          npx nx affected -t lint test e2e
+          npx nx affected -t lint test e2e -c ci
