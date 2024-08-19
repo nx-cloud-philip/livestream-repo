@@ -50,5 +50,7 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     }
-  }
+  },
+  "nxCloudAccessToken": "MDk4NGI0NDctZGZlZi00OTQwLTkxMGEtOGZmYjFhMzM3M2FhfHJlYWQtd3JpdGU=",
+  "nxCloudUrl": "https://staging.nx.app"
 }
