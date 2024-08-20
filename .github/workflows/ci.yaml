@@ -1,9 +1,8 @@
 on:
   push:
-    branches-ignore:
-      - 'release/**'
-      - 'hotfix/**'
+    branches:
       - 'main'
+  pull_request:
 
 permissions:
   contents: read
@@ -17,6 +16,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
+      - run: echo $NX_BRANCH
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -32,6 +32,10 @@ jobs:
       - run: npx playwright install
 
       - uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: ${{ github.base_ref || 'dev' }}
+      - run: echo $GITHUB_ENV
+      - run: echo ${{ github.base_ref}}
 
       - name: Run lint, test and sonar scan
         run: |
